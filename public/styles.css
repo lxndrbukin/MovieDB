@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap');
+:root {
+  --gradient: linear-gradient(#5fe8bd, #13db9f);
+  --grey: #eeeef0;
+  --dark-grey: #888888;
+}
+
+/* GENERAL */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-image: var(--gradient);
+}
+
+/* APP */
+.app {
+  width: 75%;
+  margin: auto;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+/* HEADER */
+.header {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://www.pngall.com/wp-content/uploads/4/Marvel-Avengers-PNG-Free-Image.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-bottom: 2px solid var(--grey);
+}
+
+.header .header-text {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 5rem 2rem 2rem 2rem;
+  color: #fff;
+  text-shadow: 2px 2px #000;
+}
+
+/* CONTAINER */
+.container {
+  min-height: calc(100vh - 320px);
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .movie-icon {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  color: var(--dark-grey);
+  background-color: var(--grey);
+  padding: 2rem;
+  border: 1px solid var(--dark-grey);
+  border-radius: 5px;
+}
+
+.container .movie-icon i {
+  font-size: 4rem;
+}
+
+.container .movie {
+  color: var(--dark-grey);
+  display: flex;
+  width: 100%;
+  background-color: var(--grey);
+  border: 1px solid var(--dark-grey);
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.container .movie:hover {
+  cursor: pointer;
+}
+
+.container .movie .movie-poster {
+  width: 150px;
+}
+
+.container .movie .movie-info {
+  padding: 0.8rem;
+}
