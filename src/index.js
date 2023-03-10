@@ -1,4 +1,4 @@
-import { fetchMovies, fetchMovie } from './actions';
+import { fetchMovies } from './actions';
 import App from './App';
 import Movie from './components/Movie';
 
@@ -11,10 +11,16 @@ const container = document.querySelector('.container');
 
 searchButton.addEventListener('click', async () => {
   const movies = await fetchMovies(searchInput.value);
-  const renderedMovies = movies
-    .map((movie) => {
-      return Movie(movie);
-    })
-    .join('');
+  let renderedMovies;
+  if (typeof movies !== 'string') {
+    console.log(movies);
+    renderedMovies = movies
+      .map((movie) => {
+        return Movie(movie);
+      })
+      .join('');
+  } else {
+    renderedMovies = movies;
+  }
   container.innerHTML = renderedMovies;
 });

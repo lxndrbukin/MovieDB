@@ -1,22 +1,28 @@
-import axios from 'axios';
+import Error from '../components/Error';
+
+const apikey = 'a4daa08f';
 
 export const fetchMovies = async (searchTerm) => {
-  const res = await axios.get(`http://www.omdbapi.com/`, {
-    params: {
-      apikey: 'a4daa08f',
-      s: searchTerm,
-    },
-  });
+  const movieList = [];
+  const res = await fetch(
+    `http://www.omdbapi.com/?apikey=${apikey}&s=${searchTerm}`
+  );
 
-  return res.data.Search;
-};
-
-export const fetchMovie = async (id) => {
-  const res = await axios.get(`http://www.omdbapi.com/`, {
-    params: {
-      apikey: 'a4daa08f',
-      i: id,
-    },
-  });
-  return res.data;
+  if (searchTerm) {
+    const moviesData = await res.json();
+    const movieIDs = moviesData.Search.map((movie) => movie.imdbID);
+    for (let movieID of movieIDs) {
+      const res = await fetch(
+        `http://www.omdbapi.com/?apikey=${apikey}&i=${movieID}`
+      );
+      const data = await res.json();
+      try {
+        movieList.push(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    return movieList;
+  }
+  return Error('Please provide an input for your search');
 };
