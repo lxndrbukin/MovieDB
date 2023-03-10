@@ -13,7 +13,7 @@ export const fetchMovies = async (searchTerm) => {
     const movieIDs = moviesData.Search.map((movie) => movie.imdbID);
     for (let movieID of movieIDs) {
       const res = await fetch(
-        `http://www.omdbapi.com/?apikey=${apikey}&i=${movieID}`
+        `https://www.omdbapi.com/?apikey=${apikey}&i=${movieID}`
       );
       const data = await res.json();
       try {
