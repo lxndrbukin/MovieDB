@@ -1,10 +1,14 @@
+import Box from './Box';
+
 export default function Container() {
+  const text = /*html*/ `
+    <i class='fas fa-film'></i>
+    <span>Welcome to MovieDB</span>
+  `;
+
   return /*html*/ `
     <div class='container'>
-      <div class='box'>
-        <i class='fas fa-film'></i>
-        <span>Welcome to MovieDB</span>
-      </div>
+      ${Box(text)}
     </div>
   `;
 }

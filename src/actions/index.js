@@ -1,4 +1,4 @@
-import Error from '../components/Error';
+import Box from '../components/Box';
 
 const apikey = 'a4daa08f';
 
@@ -24,5 +24,5 @@ export const fetchMovies = async (searchTerm) => {
     }
     return movieList;
   }
-  return Error('Please provide an input for your search');
+  return Box('Please provide an input for your search');
 };

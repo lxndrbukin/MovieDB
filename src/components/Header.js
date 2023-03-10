@@ -7,10 +7,19 @@ export default function Header() {
           <span>MovieDB</span>
         </a>
         <div class='header-search'>
-          <div class='header-search-form'>
-            <input class='header-search-input' name='search' type='text' />
-            <input class='header-search-button' type='submit' value='Search'/>
-          </div>
+          <input 
+            class='header-search-input' 
+            name='search' 
+            type='text'
+            placeholder='Search for movies'
+          />
+          <button 
+            class='header-search-button' 
+            type='submit' 
+            value='Search'
+          >
+            <i class='fas fa-search'></i>
+          </button>
         </div>
       </div>
     </header>

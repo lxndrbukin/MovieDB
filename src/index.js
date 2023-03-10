@@ -1,4 +1,5 @@
 import { fetchMovies } from './actions';
+import Spinner from './components/Spinner';
 import App from './App';
 import Movie from './components/Movie';
 
@@ -10,6 +11,7 @@ const searchButton = document.querySelector('.header-search-button');
 const container = document.querySelector('.container');
 
 searchButton.addEventListener('click', async () => {
+  container.innerHTML = Spinner();
   const movies = await fetchMovies(searchInput.value);
   let renderedMovies;
   if (typeof movies !== 'string') {
