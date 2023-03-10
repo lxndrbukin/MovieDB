@@ -5,7 +5,7 @@ const apikey = 'a4daa08f';
 export const fetchMovies = async (searchTerm) => {
   const movieList = [];
   const res = await fetch(
-    `http://www.omdbapi.com/?apikey=${apikey}&s=${searchTerm}`
+    `https//www.omdbapi.com/?apikey=${apikey}&s=${searchTerm}`
   );
 
   if (searchTerm) {
