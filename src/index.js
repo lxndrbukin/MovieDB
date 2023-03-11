@@ -1,7 +1,7 @@
 import { fetchMovies } from './actions';
 import Spinner from './components/Spinner';
 import App from './App';
-import Movie from './components/Movie';
+import MovieTemplate from './components/MovieTemplate';
 
 const root = document.querySelector('#root');
 root.innerHTML = App();
@@ -12,17 +12,16 @@ const container = document.querySelector('.container');
 
 searchButton.addEventListener('click', async () => {
   container.innerHTML = Spinner();
-  const movies = await fetchMovies(searchInput.value);
+  const data = await fetchMovies(searchInput.value);
   let renderedMovies;
-  if (typeof movies !== 'string') {
-    console.log(movies);
-    renderedMovies = movies
+  if (typeof data === 'string') {
+    renderedMovies = data;
+  } else {
+    renderedMovies = data
       .map((movie) => {
-        return Movie(movie);
+        return MovieTemplate(movie);
       })
       .join('');
-  } else {
-    renderedMovies = movies;
   }
   container.innerHTML = renderedMovies;
 });

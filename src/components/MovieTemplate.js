@@ -1,4 +1,4 @@
-export default function Movie(movie) {
+export default function MovieTemplate(movie) {
   return /*html*/ `
     <div class='movie'>
       <img class='movie-poster' src='${movie.Poster}' />

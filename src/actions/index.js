@@ -1,5 +1,3 @@
-import Box from '../components/Box';
-
 const api = 'https://www.omdbapi.com';
 const apikey = 'a4daa08f';
 
@@ -21,5 +19,5 @@ export const fetchMovies = async (searchTerm) => {
     }
     return movieList;
   }
-  return Box('Please provide an input for your search');
+  return 'Please provide an input for your search';
 };
