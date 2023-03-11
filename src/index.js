@@ -1,4 +1,5 @@
 import { fetchMovies } from './actions';
+import Box from './components/Box';
 import Spinner from './components/Spinner';
 import App from './App';
 import MovieTemplate from './components/MovieTemplate';
@@ -15,7 +16,7 @@ searchButton.addEventListener('click', async () => {
   const data = await fetchMovies(searchInput.value);
   let renderedMovies;
   if (typeof data === 'string') {
-    renderedMovies = data;
+    renderedMovies = Box(data);
   } else {
     renderedMovies = data
       .map((movie) => {
